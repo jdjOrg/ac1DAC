@@ -117,6 +117,23 @@ nomeFantasia VARCHAR(100)
 );
 ```
 
+### DotEnv
+
+EXPRESS_HOST = localhost
+
+EXPRESS_PORT = 3003
+
+MONGO_HOST = localhost
+
+MONGO_PORT = 27017
+
+MONGO_DB = ProjetoLivros
+
+REDIS_HOST = localhost
+
+REDIS_PORT = 6379
+
+
 ### Participantes da Equipe
 
 Daniel Oliveira | João Alfredo Alves Marinho Neto | Junior Silva
