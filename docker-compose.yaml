@@ -8,3 +8,10 @@ services:
     image: redis
     ports:
       - 6379:6379
+  ac1dac:
+    build: .
+    depends_on:
+      - mongodb
+      - redisdb
+    ports: 
+      - 3003:3003
