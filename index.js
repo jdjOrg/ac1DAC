@@ -81,8 +81,8 @@ app.post("/dac/editora/single", editoraController.inspecionaEditora);
 
 
 // Rotas de Busca
-app.post("/dac/busca/editora/busca", editoraController.buscaPLocal);
-app.post("/dac/busca/livro/busca", bookController.buscaPTitulo);
+app.post("/dac/editora/busca", editoraController.buscaPLocal);
+app.post("/dac/livro/busca", bookController.buscaPTitulo);
 
 // CRUD Editora
 app.post("/dac/editora/adicionar", editoraController.adicionarEditora);
