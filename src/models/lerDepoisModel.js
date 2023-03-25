@@ -17,6 +17,10 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  dataDeLancamento: {
+    type: Date,
+    required: true,
+  },
 });
 
 const LerDepoisModel = mongoose.model("lerDepois", bookSchema);

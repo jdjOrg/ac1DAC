@@ -30,7 +30,7 @@ const verAddLendo = async (req, res) => {
 // Adiciona um livro
 const adicionarLivroLendo = async (req, res) => {
     try {
-      const book = await BookModel.findById(req.params.id, { _id:0, titulo:1, autor:1, descricao:1, caminhoCapa:1 });
+      const book = await BookModel.findById(req.params.id, { _id:0, titulo:1, autor:1, descricao:1, caminhoCapa:1, dataDeLancamento:1 });
       const result = await LendoModel.insertMany(book);
       console.log(result);
       res.status(200).redirect("/user");

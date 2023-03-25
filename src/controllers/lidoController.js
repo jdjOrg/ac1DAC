@@ -20,7 +20,7 @@ const verLido = async (req, res) => {
 // Adiciona um livro e retira o mesmo da lista 'Lendo'
 const adicionarLivroLido = async (req, res) => {
     try {
-      const book = await BookModel.findOne({titulo: req.params.titulo}, { _id:0, titulo:1, autor:1, descricao:1, caminhoCapa:1 });
+      const book = await BookModel.findOne({titulo: req.params.titulo}, { _id:0, titulo:1, autor:1, descricao:1, caminhoCapa:1, dataDeLancamento:1 });
       await LidoModel.insertMany(book);
       await LendoModel.findOneAndRemove({titulo: req.params.titulo}); 
       res.status(200).redirect("/user");

@@ -96,7 +96,7 @@ const livrosUser = async (req, res) => {
     for (const cacheKey of cacheKeys) {
       const bookCache = await client.get(cacheKey)
       books.push(bookCache)
-      const temp = await BookModel.find({titulo: books[count]}, {_id:0, titulo:1, autor:1, descricao:1, caminhoCapa:1});
+      const temp = await BookModel.find({ titulo: books[count] }, { _id: 0, titulo: 1, autor: 1, descricao: 1, caminhoCapa: 1, dataDeLancamento: 1 });
       booksCache.push(temp);
       count++
     }
@@ -104,7 +104,23 @@ const livrosUser = async (req, res) => {
   } catch (error) {
     res.status(500).send(error.message);
   }
-}
+};
+
+
+/* 
+ * Aqui ele vai buscar os livros utilizando a operação regular regex
+ * que vai trazer os livros que tiverem a parte buscada em qualquer lugar da string do título
+ * seja no começo, meio ou fim.
+*/
+const buscaPTitulo = async (req, res) => {
+  try {
+    const books = await BookModel.find({ titulo : { $regex: req.body.buscaTitulo, $options : 'i' }});
+    //res.status(200).render("home", { books });
+    res.json(books);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
 
 module.exports = {
   adicionarLivro,
@@ -114,4 +130,5 @@ module.exports = {
   deletarLivro,
   novoLivro,
   livrosUser,
+  buscaPTitulo,
 };

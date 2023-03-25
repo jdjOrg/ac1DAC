@@ -8,10 +8,12 @@ const lidoController = require("./src/controllers/lidoController");
 const lendoController = require("./src/controllers/lendoController");
 const lerDepoisController = require("./src/controllers/lerDepoisController");
 const bookCacheController = require("./src/controllers/bookCacheController");
+const editoraController = require("./src/controllers/editoraController");
 const BookModel = require("./src/models/bookModel");
 const LidoModel = require("./src/models/lidoModel");
 const LendoModel = require("./src/models/lendoModel");
 const LerDepoisModel = require("./src/models/lerDepoisModel");
+const EditoraModel = require("./src/models/editoraModel");
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -70,6 +72,22 @@ app.post("/user/deleteLivroLendo/:id", lendoController.deletarLivroLendo);
 app.post("/user/deleteLivroLido/:id", lidoController.deletarLivroLido);
 app.post("/user/deleteLivroLerDepois/:id", lerDepoisController.deletarLivroLerDepois);
 
+
+// Rotas para atv de DAC
+// Rotas de páginas
+app.get("/dac/editora/home", editoraController.buscarEditoras);
+app.get("/dac/editora/add", editoraController.novaEditora);
+app.post("/dac/editora/single", editoraController.inspecionaEditora);
+
+
+// Rotas de Busca
+app.post("/dac/busca/editora/busca", editoraController.buscaPLocal);
+app.post("/dac/busca/livro/busca", bookController.buscaPTitulo);
+
+// CRUD Editora
+app.post("/dac/editora/adicionar", editoraController.adicionarEditora);
+app.post("/dac/editora/atualizar/:id", editoraController.atualizarEditora);
+app.post("/dac/editora/deletar/:id", editoraController.deletarEditora);
 
 
 // Rota de testes
