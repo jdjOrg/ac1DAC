@@ -1,0 +1,17 @@
+<%- include('header.ejs'); %>
+
+<main>
+    <% if(editoras.length > 0){ %>
+      <section class="lista-2">
+      <h2 class="lista-title">Editoras</h2>
+      <div class="lista-scroll-2">
+      <% editoras.forEach(editora => { %>
+        <h3><%= editora.nomeFantasia %></h3>
+        <% }) }else { %>
+          <p class="p-semLivro">Não há editoras no banco de dados, por favor adicione</p>
+        <% } %>
+      </div>
+  </section>
+</main>
+
+<%- include('footer.ejs'); %>

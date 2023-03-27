@@ -79,7 +79,7 @@ const deletarEditora = async (req, res) => {
 const buscaPLocal = async (req, res) => {
     try {
       const editoras = await EditoraModel.find({ localDeOrigem: { $regex: req.body.buscaLocal, $options : 'i' }});
-      //res.status(200).render("home", { editoras });            //trocar "home" pela página de busca da editora.
+      res.status(200).render("editora", { editoras });            //trocar "home" pela página de busca da editora.
       res.json(editoras);
     } catch (error) {
       res.status(500).send(error.message);
