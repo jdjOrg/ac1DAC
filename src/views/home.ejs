@@ -2,6 +2,10 @@
 
 <main>
     <% if(books.length > 0){ %>
+      <h2 class="upd-title">Adicionar Novo Livro</h2>
+      <form action="/dac/livro/busca" method="POST">
+        <input class="upd-input" type="search" name="buscaTitulo" id="buscaTitulo" placeholder="Pesquisar livro">
+      </form>
       <section class="lista-2">
       <h2 class="lista-title">Minha Lista</h2>
       <div class="lista-scroll-2">
