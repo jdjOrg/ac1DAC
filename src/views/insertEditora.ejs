@@ -1,0 +1,33 @@
+<%- include('header.ejs'); %>
+
+<main>
+	<section class="upd-screen">
+		<h2 class="upd-title">Adicionar Nova Editora</h2>
+		<form class="upd-form" action="/addLivro" method="POST">
+			<input
+				class="upd-input"
+				type="text"
+				name="titulo"
+				id="titulo"
+				placeholder="Nome Fantasia"
+			/>
+			<input
+				class="upd-input"
+				type="text"
+				name="autor"
+				id="autor"
+				placeholder="Local de Origem"
+			/>
+			<textarea
+				class="upd-input"
+				name="descricao"
+				id="descricao"
+				placeholder="Código da Editora"
+			></textarea>
+
+			<input class="upd-btn" type="submit" value="Adicionar" />
+		</form>
+	</section>
+</main>
+
+<%- include('footer.ejs'); %>
