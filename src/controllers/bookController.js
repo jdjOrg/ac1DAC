@@ -115,8 +115,8 @@ const livrosUser = async (req, res) => {
 const buscaPTitulo = async (req, res) => {
   try {
     const books = await BookModel.find({ titulo : { $regex: req.body.buscaTitulo, $options : 'i' }});
-    //res.status(200).render("home", { books });
-    res.json(books);
+    res.status(200).render("home", { books });
+    // res.json(books);
   } catch (error) {
     res.status(500).send(error.message);
   }
