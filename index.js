@@ -45,7 +45,7 @@ app.post("/updateLivro/:id", bookController.atualizarLivro);
 // Deleta um livro
 app.get("/deleteLivro/:id", bookController.deletarLivro);
 
-//  -------- A SER DESENVOLVIDO --------------
+//  editora
 app.get("/novaEditora", editoraController.novaEditora);
 app.get("/atualizaLivro/:id", editoraController.inspecionaEditora);
 app.post("/addLivro", editoraController.adicionarEditora);
