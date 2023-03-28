@@ -23,6 +23,11 @@
                 <strong>Sinopse</strong>
                 <textarea class="upd-input" name="descricao" id="descricao" rows="4" cols="50"><%= book.descricao %></textarea>
             </label>
+
+            <label class="upd-label" for="autor">
+                <strong>Data</strong>
+                <input class="upd-input" type="date" name="dataDeLancamento" id="dataDeLancamento" value="<%= book.dataDeLancamento %>"> 
+            </label>
             
             <label class="upd-label" for="caminhoCapa">
                 <strong>Capa URL</strong>

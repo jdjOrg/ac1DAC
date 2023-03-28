@@ -85,7 +85,7 @@ app.post(
 // Rotas de páginas
 app.get("/dac/editora/home", editoraController.buscarEditoras);
 app.get("/dac/editora/add", editoraController.novaEditora);
-app.post("/dac/editora/single", editoraController.inspecionaEditora);
+app.get("/dac/editora/single/:id", editoraController.inspecionaEditora);
 
 // Rotas de Busca
 app.post("/dac/editora/busca", editoraController.buscaPLocal);
@@ -94,7 +94,7 @@ app.post("/dac/livro/busca", bookController.buscaPTitulo);
 // CRUD Editora
 app.post("/dac/editora/adicionar", editoraController.adicionarEditora);
 app.post("/dac/editora/atualizar/:id", editoraController.atualizarEditora);
-app.post("/dac/editora/deletar/:id", editoraController.deletarEditora);
+app.get("/dac/editora/deletar/:id", editoraController.deletarEditora);
 
 // Rota de testes
 // app.get("/teste/:id", bookController.teste);

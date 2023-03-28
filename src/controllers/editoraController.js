@@ -4,15 +4,11 @@ const EditoraModel = require("../models/editoraModel");
 const buscarEditoras = async (req, res) => {
 	try {
 		const editoras = await EditoraModel.find();
-
-		res.json(editoras);
-		/*
-    if (editoras === null) {
-      res.status(404).render("home", { editoras });    // trocar pela página contendo todas as editoras
-    } else {
-      res.status(200).render("home", { editoras });    // trocar pela página contendo todas as editoras
-    }
-    */
+    	if (editoras === null) {
+      		res.status(404).render("editora", { editoras });    // trocar pela página contendo todas as editoras
+    	} else {
+      		res.status(200).render("editora", { editoras });    // trocar pela página contendo todas as editoras
+    	}
 	} catch (error) {
 		res.status(404).send(error);
 	}
@@ -21,7 +17,7 @@ const buscarEditoras = async (req, res) => {
 // Renderiza a página de adicionar editora
 const novaEditora = async (req, res) => {
 	try {
-		res.status(200).render("editoraCache"); // trocar pela página de adicionar editora
+		res.status(200).render("insertEditora"); // trocar pela página de adicionar editora
 	} catch (error) {
 		res.status(500).send(error.message);
 	}
@@ -41,9 +37,7 @@ const inspecionaEditora = async (req, res) => {
 const adicionarEditora = async (req, res) => {
 	try {
 		const editora = await EditoraModel.create(req.body);
-		res.status(302).redirect("/editora");
-		// trocar pela rota da página com listagem de editoras
-		res.json(editora);
+		res.status(302).redirect("/dac/editora/home");
 	} catch (error) {
 		res.status(500).send(error.message);
 	}
@@ -56,8 +50,7 @@ const atualizarEditora = async (req, res) => {
 			req.params.id,
 			req.body
 		);
-		res.json(editora);
-		res.status(200).redirect("/editoras");
+		res.status(200).redirect("/dac/editora/home");
 		// trocar pela rota da página com listagem de editoras
 	} catch (error) {
 		res.status(500).send(error.message);
@@ -68,8 +61,7 @@ const atualizarEditora = async (req, res) => {
 const deletarEditora = async (req, res) => {
 	try {
 		const editora = await EditoraModel.findByIdAndRemove(req.params.id);
-		res.json(editora);
-		res.status(302).redirect("/editora");
+		res.status(302).redirect("/dac/editora/home");
 		// trocar pela rota da página com listagem de editoras
 	} catch (error) {
 		res.status(500).send(error.message);

@@ -2,14 +2,24 @@
 
 <main>
     <% if(editoras.length > 0){ %>
+      <h2 class="upd-title">Buscar Editora</h2>
+	    <form action="/dac/editora/busca" method="POST">
+		    <input
+		    	class="upd-input"
+		    	type="search"
+		    	name="buscaLocal"
+		    	id="buscaLocal"
+		    	placeholder="Pesquisar editora"
+		    />
+	    </form>
       <section class="lista-2">
       <h2 class="lista-title">Editoras</h2>
       <div class="lista-scroll-2">
       <% editoras.forEach(editora => { %>
-        <h3><%= editora.nomeFantasia %></h3>
-        <% }) }else { %>
-          <p class="p-semLivro">Não há editoras no banco de dados, por favor adicione</p>
-        <% } %>
+        <h3><a href="/dac/editora/single/<%= editora.id %>"><%= editora.nomeFantasia %></a></h3>
+    <% }) }else { %>
+      <p class="p-semLivro">Não há editoras no banco de dados, por favor adicione</p>
+    <% } %>
       </div>
   </section>
 </main>

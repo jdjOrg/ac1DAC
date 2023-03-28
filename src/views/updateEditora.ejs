@@ -3,10 +3,10 @@
 <main>
 	<section class="upd-screen">
 		<div class="right">
-			<h2 class="upd-title">Atualizar Livro</h2>
+			<h2 class="upd-title">Atualizar Editora</h2>
 			<form
 				class="upd-form"
-				action="/updateEditora/<%= editora.id %>"
+				action="/dac/editora/atualizar/<%= editora.id %>"
 				method="POST"
 			>
 				<label class="upd-label" for="titulo">
@@ -14,8 +14,8 @@
 					<input
 						class="upd-input"
 						type="text"
-						name="titulo"
-						id="titulo"
+						name="nomeFantasia"
+						id="nomeFantasia"
 						value="<%= editora.nomeFantasia %>"
 					/>
 				</label>
@@ -25,22 +25,11 @@
 					<input
 						class="upd-input"
 						type="text"
-						name="autor"
-						id="autor"
+						name="localDeOrigem"
+						id="localDeOrigem"
 						value="<%= editora.localDeOrigem %>"
 					/>
 				</label>
-
-				<!-- <label class="upd-label" for="descricao">
-					<strong>Código</strong>
-					<textarea
-						class="upd-input"
-						name="descricao"
-						id="descricao"
-					>
-<%= editora.codigo %></textarea
-					>
-				</label> -->
 
 				<div>
 					<input
@@ -48,7 +37,7 @@
 						type="submit"
 						value="Salvar"
 					/>
-					<a href="/deleteEditora/<%= editora.id %>"
+					<a href="/dac/editora/deletar/<%= editora.id %>"
 						><input
 							type="button"
 							value="Deletar"
